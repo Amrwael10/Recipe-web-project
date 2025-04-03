@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    background-attachment: fixed;
+    background-image: url(../images/user-bg.webp);
+    background-size: cover;
+    min-height: 100vh;
+}
+header {
+    background-color: #333;
+    color: white;
+    text-align: left;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 999;
+}
+header h1 {
+    margin-left: 30PX;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+.search-bar {
+    width: 99.5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.recipe-list, .favorites-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+.recipe-list h2, .favorites-list h2 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.recipe-list h2 a, .favorites-list h2 a{
+    color: black;
+    text-decoration: underline;
+    transition: color 1s;
+}
+.recipe-list h2 a:hover, .favorites-list h2 a:hover{
+    color: red;
+}
+.recipe-card {
+    background: #DDDDDD;
+    padding: 15px;
+    border-radius: 10px;
+    width: 28%;
+    transition: transform 0.3s;
+}
+.recipe-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.recipe-card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.5s;
+}
+.recipe-card a:hover{
+    color: #a05050;
+}
+.recipe-card p{
+    color: #494949;
+}
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.nav-links a, h2 a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
