@@ -1,10 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Lilita One", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
     background-attachment: fixed;
-    background-image: url(../images/user-bg.webp);
+    background-image: url("images/user-bg.webp");
     background-size: cover;
     min-height: 100vh;
 }
@@ -39,7 +39,7 @@ header h1 {
 }
 .recipe-list, .favorites-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 20px;
     background-color: white;
     border-radius: 10px;
@@ -52,7 +52,7 @@ header h1 {
 }
 .recipe-list h2 a, .favorites-list h2 a{
     color: black;
-    text-decoration: underline;
+    text-decoration: none;
     transition: color 1s;
 }
 .recipe-list h2 a:hover, .favorites-list h2 a:hover{
@@ -62,7 +62,8 @@ header h1 {
     background: #DDDDDD;
     padding: 15px;
     border-radius: 10px;
-    width: 28%;
+    width: 100%;
+    box-sizing: border-box;
     transition: transform 0.3s;
 }
 .recipe-card:hover{
@@ -104,4 +105,71 @@ footer {
     left: 0px;
     margin-top: 20px;
     font-size: 0.9em;
+}
+form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #f76f6f;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+form:hover{
+    width: 300px;
+    cursor: pointer;
+}
+form:hover input{
+    display: block;
+}
+form:hover .fa{
+    background: #f76f6f;
+    color: white;
+}
+
+@media (max-width: 750px) {
+    .recipe-list, .favorites-list {
+        flex-direction: column; 
+        align-items: center;    
+        text-align: center;     
+    }
+
+    .description {
+        width: 100%;           
+    }
 }
