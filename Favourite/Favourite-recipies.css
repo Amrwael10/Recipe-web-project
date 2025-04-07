@@ -1,5 +1,5 @@
 body {
-    font-family: "Lilita One", Arial, sans-serif;
+    font-family: 'Lilita One', sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -34,85 +34,7 @@ main {
     padding: 2rem;
     position: relative;
 }
-
-.recipe {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 1rem 0;
-    padding: 1rem;
-    width: 80%;
-    transition: transform 0.3s;
-}
-
-.recipe:hover{
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.recipe img {
-    max-width: 150px;
-    margin-right: 1rem;
-}
-
-.description {
-    flex: 1;
-}
-
-.description p{
-    color: #494949;
-    margin-bottom: 20px;
-}
-
-.description h2 {
-    margin-top: 0;
-}
-
-.description button{
-    border: solid 1px transparent;
-    border-radius: 5px;
-    width: 10%;
-    height: 30px;
-    background-color: #333;
-    color: #fff;
-    transition: transform 0.5s;
-}
-
-.description button:hover{
-    color: red;
-    transform: rotate(4deg);
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-
-#Clear-all{
-    border: solid 2px #333;
-    border-radius: 5px;
-    font-size: 20px;
-    height: 30px;
-    background-color: red;
-    color: #333;
-    transition: transform 0.5s;
-}
-
-#Clear-all:hover{
-    color: white;
-    transform: scale(90%);
-}
+/*//////////////////////////////////////////////////*/
 form{
     position: relative;
     top: 50%;
@@ -126,8 +48,6 @@ form{
     border-radius: 25px;
     border: 4px solid white;
     padding: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    margin-top: 30px;
 }
 input{
     position: absolute;
@@ -167,6 +87,85 @@ form:hover input{
 form:hover .fa{
     background: #f76f6f;
     color: white;
+}
+/*//////////////////////////////////////////////////*/
+.recipe {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 80%;
+    transition: transform 0.3s;
+}
+
+.recipe:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe img {
+    max-width: 150px;
+    margin-right: 1rem;
+}
+
+.description {
+    flex: 1;
+}
+
+.description p{
+    color: #494949;
+    margin-bottom: 20px;
+}
+
+.description h2 {
+    margin-top: 0;
+}
+
+.description button{
+    border: solid 1px transparent;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: #333;
+    color: #fff;
+    transition: transform 0.5s;
+}
+
+.description button:hover{
+    color: red;
+    transform: rotate(4deg);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+#Clear-all{
+    border: solid 2px #333;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 30px;
+    background-color: red;
+    color: #333;
+    transition: transform 0.5s;
+}
+
+#Clear-all:hover{
+    color: white;
+    transform: scale(90%);
 }
 
 @media (max-width: 750px) {
