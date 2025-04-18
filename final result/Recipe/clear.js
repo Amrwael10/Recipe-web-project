@@ -13,8 +13,11 @@ removeButtons.forEach(button => {
                 if (document.querySelectorAll("section.recipe").length === 0) {
                     para.textContent = "No favourite recipes available.";
                     para.style.display = "block";
+                    search = document.getElementsByTagName("form")[0];
+                    search.style.display = "none";
+                    btn = document.getElementById("Clear-all");
+                    btn.style.display = "none";
                 }
-            
             }                
         }
     });
@@ -29,6 +32,10 @@ clearAllButton.addEventListener("click", function () {
         alert("Recipes removed successfully.");
         para.textContent = "No favourite recipes available.";
         para.style.display = "block";
+        search = document.getElementsByTagName("form")[0];
+        search.style.display = "none";
+        btn = document.getElementById("Clear-all");
+        btn.style.display = "none";
         }
 });
 
