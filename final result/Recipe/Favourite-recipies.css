@@ -48,6 +48,22 @@ main {
     position: relative;
 }
 
+#no-recipe {
+    display: none;
+    font-family: "Lilita One", Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #e25454;
+    text-align: center;
+    margin: 2rem auto;
+    background-color: #fff3f3;
+    padding: 1rem 2rem;
+    border: 2px dashed #e25454;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 90%;
+}
+
+
 .recipe {
     display: flex;
     align-items: center;
