@@ -27,11 +27,7 @@ Amr (Backend):
 ---------------------------------------------------------------------------------------------------------
 
 📁 JSONs File Structure:
-
-1- Users:
-➤ Contains: username, password, role, email.
-
-2. Recepies:
+Recepies:
 ➤ Also Stores: Object: Recipes(recepies-name, details, array that contains Users-names who favorited those recipes: array of strings, ingridiants: array of strings).
 ---------------------------------------------------------------------------------------------------------
 📁 JSs Files:
