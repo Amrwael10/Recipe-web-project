@@ -1,0 +1,32 @@
+[
+    {
+      "recipe": "Spaghetti Pomodoro",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReeWD_0ZLWPNj6QK-v-pjhqELIzzIVSyFseA&s",
+      "description": "Classic Italian pasta with tomato sauce, garlic, basil, and cherry tomatoes.",
+      "likedBy": ["sherif"]
+    },
+    {
+      "recipe": "Grilled Chicken Salad",
+      "image": "https://png.pngitem.com/pimgs/s/151-1519875_food-dish-png-transparent-png.png",
+      "description": "Healthy grilled chicken served over a fresh veggie salad with vinaigrette.",
+      "likedBy": ["mario"]
+    },
+    {
+      "recipe": "Vegetarian Chili",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/skillet-cheeseburger-hot-dish-best-potluck-dishes-66e8544968ce0.png?crop=1.00xw:0.997xh;0,0&resize=1200:*",
+      "description": "Hearty and spicy chili made with beans, vegetables, and aromatic spices.",
+      "likedBy": ["sherif"]
+    },
+    {
+      "recipe": "Greek Salad",
+      "image": "imgs/Recipe4.jpg",
+      "description": "Refreshing salad with cucumbers, tomatoes, red onion, feta, and olives.",
+      "likedBy": []
+    },
+    {
+      "recipe": "Shrimp Curry",
+      "image": "imgs/Recipe5.jpg",
+      "description": "Rich and flavorful curry with shrimp, spices, and creamy coconut sauce.",
+      "likedBy":[]
+  }
+  ]

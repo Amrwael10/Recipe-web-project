@@ -1,0 +1,194 @@
+body {
+    font-family: 'Lilita One', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(../imgs/user-bg.webp) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+header h1 {
+    margin-left: 30px;
+    margin: 0;
+    position: relative;
+    left: 25px;
+}
+
+header h1:hover {
+    color: #e25454;
+    cursor: pointer;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Search Form */
+form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #f76f6f;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover {
+    width: 300px;
+    cursor: pointer;
+}
+
+form:hover input {
+    display: block;
+}
+
+form:hover .fa {
+    background: #f76f6f;
+    color: white;
+}
+
+/* Recipe Sections */
+.recipe-list {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    gap: 15px;
+}
+
+.recipe-list h2 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.recipe-list h2 a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.recipe-list h2 a:hover {
+    color: red;
+}
+
+.recipe-list .content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+/* Recipe Cards */
+.recipe-card {
+    background: #DDDDDD;
+    padding: 15px;
+    border-radius: 10px;
+    width: 30%;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.recipe-card a:hover {
+    color: #a05050;
+}
+
+.recipe-card p {
+    color: #494949;
+}
+
+.recipe-card {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s ease-in-out;
+}
+
+.recipe-card.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 750px) {
+    .recipe-card {
+        width: 100%;
+    }
+}

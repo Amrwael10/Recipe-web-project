@@ -1,0 +1,32 @@
+[
+  {
+    "recipe_name": "Spaghetti Bolognese",
+    "recipe_description": "Ingredients: Spaghetti, Ground Beef, Tomato Sauce, Onion, Garlic, Olive Oil, Herbs",
+    "recipe_image": "https://plus.unsplash.com/premium_photo-1674511582428-58ce834ce172?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "recipe_name": "Chicken Curry",
+    "recipe_description": "Ingredients: Chicken, Curry Powder, Coconut Milk, Onion, Garlic, Ginger, Tomatoes",
+    "recipe_image": "https://images.unsplash.com/photo-1631292784640-2b24be784d5d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "recipe_name": "Vegetable Stir Fry",
+    "recipe_description": "Ingredients: Broccoli, Bell Peppers, Carrots, Snap Peas, Soy Sauce, Garlic, Sesame Oil",
+    "recipe_image": "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "recipe_name": "Vegetable Stir Fry",
+    "recipe_description": "Ingredients: Broccoli, Bell Peppers, Carrots, Snap Peas, Soy Sauce, Garlic, Sesame Oil",
+    "recipe_image": "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "recipe_name": "Spaghetti Bolognese",
+    "recipe_description": "Ingredients: Spaghetti, Ground Beef, Tomato Sauce, Onion, Garlic, Olive Oil, Herbs",
+    "recipe_image": "https://plus.unsplash.com/premium_photo-1674511582428-58ce834ce172?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "recipe_name": "Pizza",
+    "recipe_description": "Ingredients: Pizza Dough, Tomato Sauce, Mozzarella Cheese, Pepperoni, Basil, Olive Oil",
+    "recipe_image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+]
