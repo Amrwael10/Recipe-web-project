@@ -101,7 +101,7 @@ button {
     height: 30px;
     position: relative;
     top: 34px;
-    left: 13%;
+    left: 34%;
     margin-right: 10px;
     background-color: #fff;
     border-radius: 61px;
@@ -111,7 +111,7 @@ button {
 
 .all-buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: space-between;
 }
 
 #back-btn {
