@@ -25,13 +25,13 @@ Sherif
 
 Amr
 5. favourite-recepies:
-5.1 get the recepeis that has the user_name in the array within the recepie.
-5.2 search should be able to search for a recepie by its ingridiants.
+5.1 get the recepeis that has the user_name in the array within the recepie. (same as under)
+5.2 search should be able to search for a recepie by its ingridiants. (f..k it if we don't have time)
 
 Mario
 6. Admin_profile_page: add, remove and edit should edit the recepies json file. 
 
-4.3, 5.2 (search Algorithm) on Yasser: mae sure to be able to search by ingridiants.
+4.3, 5.2 (search Algorithm) on Yasser: make sure to be able to search by ingridiants.
 ---------------------------------------------------------------------------------------------------------
 
 📁 JSONs File Structure:
