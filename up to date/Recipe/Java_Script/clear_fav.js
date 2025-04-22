@@ -1,60 +1,92 @@
+let allRecipes = [];
 const recipeContainer = document.querySelector("main");
 const para = document.getElementById("no-recipe");
 const clearAllButton = document.getElementById("Clear-all");
-let allRecipes = [];
+const signedUsername = localStorage.getItem("signed_username");
 
-// Get signed-in username
-function getSignedUsername() {
-    return localStorage.getItem('signed_username') || "";
-}
-
-// Search function
 function Search() {
     const searchInput = document.querySelector('input[type="search"]');
+    const container = document.querySelector("main");
+
     searchInput.addEventListener('input', () => {
         const keyword = searchInput.value.trim().toLowerCase();
-        const filtered = allRecipes.filter(recipe =>
-            recipe.recipe_name.toLowerCase().includes(keyword) ||
-            recipe.recipe_description.toLowerCase().includes(keyword)
-        );
-        create_cards(filtered);
-        if (filtered.length === 0) {
-            para.textContent = 'Not found';
-            para.style.display = "block";
+
+        if (keyword === "") {
+            create_cards(allRecipes); 
         } else {
-            para.style.display = "none";
+            const filtered = allRecipes.filter(recipe =>
+                recipe.recipe_name.toLowerCase().includes(keyword) ||
+                recipe.recipe_description.toLowerCase().includes(keyword)
+            );
+
+            if (filtered.length > 0) {
+                create_cards(filtered);
+            } else {
+                create_cards([]);
+                document.querySelector("form").style.display = "block";
+                para.textContent = 'Not found';
+                para.style.display = "block";
+            }
         }
     });
 }
 
-// Fetch and filter recipes
-function Get_all_recipes() {
-    fetch('./Java_Script/recipes.json')
-        .then(response => response.json())
-        .then(data => {
-            const username = getSignedUsername();
-            allRecipes = data.filter(recipe => recipe.likedBy.includes(username));
-            create_cards(allRecipes);
-        })
-        .catch(error => {
-            console.error("Error fetching recipes:", error);
-            para.textContent = "Failed to load recipes.";
-            para.style.display = "block";
-        });
+function saveToLocalStorage(recipes) {
+    localStorage.setItem("recipes", JSON.stringify(recipes));
 }
 
-// Create recipe cards
+function loadFromLocalStorage() {
+    const stored = localStorage.getItem("recipes");
+    if (!stored) return null;
+    
+    const allRecipes = JSON.parse(stored);
+    // Filter recipes that have current user in likedBy array
+    return allRecipes.filter(recipe => 
+        recipe.likedBy && recipe.likedBy.includes(signedUsername)
+    );
+}
+
+function Get_all_recipes() {
+    // First try to load from localStorage
+    const localData = loadFromLocalStorage();
+    
+    if (localData && localData.length > 0) {
+        allRecipes = localData;
+        create_cards(allRecipes);
+    } else {
+        // If nothing in localStorage, fetch from JSON
+        fetch('./Java_Script/recipes.json')
+            .then(response => response.json())
+            .then(data => {
+                // Save all recipes to localStorage
+                saveToLocalStorage(data);
+                // Filter to only show recipes liked by current user
+                allRecipes = data.filter(recipe => 
+                    recipe.likedBy && recipe.likedBy.includes(signedUsername)
+                );
+                create_cards(allRecipes);
+            })
+            .catch(error => {
+                console.error("Error: Cannot download Recipes", error);
+                para.textContent = "Failed to load recipes.";
+                para.style.display = "block";
+            });
+    }
+}
+
 function create_cards(recipes) {
     document.querySelectorAll("section.recipe").forEach(e => e.remove());
 
     if (recipes.length === 0) {
         para.textContent = "No favourite recipes available.";
         para.style.display = "block";
+        document.querySelector("form").style.display = "none";
         clearAllButton.style.display = "none";
         return;
     }
 
     para.style.display = "none";
+    document.querySelector("form").style.display = "block";
     clearAllButton.style.display = "block";
 
     recipes.forEach((recipe, index) => {
@@ -66,39 +98,66 @@ function create_cards(recipes) {
             <div class="description">
                 <h2>${recipe.recipe_name}</h2>
                 <p>${recipe.recipe_description}</p>
-                <button type="button" class="remove-btn" data-index="${index}">Remove</button>
+                <button data-index="${index}">Remove</button>
             </div>
         `;
 
-        // Add remove handler
-        section.querySelector(".remove-btn").addEventListener("click", () => {
-            removeRecipe(index);
-        });
-
+        section.querySelector("button").addEventListener("click", () => removeRecipe(index));
         recipeContainer.insertBefore(section, para);
     });
 }
 
-// Remove specific recipe
 function removeRecipe(index) {
     if (confirm("Are you sure you want to remove this recipe?")) {
+        // Get the recipe to be removed
+        const recipeToRemove = allRecipes[index];
+        
+        // Remove user from likedBy array
+        if (recipeToRemove.likedBy) {
+            recipeToRemove.likedBy = recipeToRemove.likedBy.filter(
+                username => username !== signedUsername
+            );
+        }
+        
+        // Update the recipe list
         allRecipes.splice(index, 1);
+        
+        // Get all recipes from localStorage
+        const allStoredRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+        
+        // Update the specific recipe in the stored list
+        const updatedRecipes = allStoredRecipes.map(recipe => {
+            if (recipe.recipe_name === recipeToRemove.recipe_name) {
+                return recipeToRemove;
+            }
+            return recipe;
+        });
+        
+        // Save back to localStorage
+        saveToLocalStorage(updatedRecipes);
         create_cards(allRecipes);
-        alert("Recipe removed.");
+        alert("Recipe removed successfully.");
     }
 }
 
-// Clear all recipes
 clearAllButton.addEventListener("click", () => {
     if (confirm("Are you sure you want to remove all recipes?")) {
         allRecipes = [];
+        saveToLocalStorage(allRecipes);
         create_cards(allRecipes);
         alert("All recipes removed.");
     }
 });
 
-// Initialize
 document.addEventListener("DOMContentLoaded", () => {
-    Get_all_recipes();
-    Search();
+    if (!signedUsername) {
+        para.textContent = "Please sign in to view your favorite recipes.";
+        para.style.display = "block";
+        document.querySelector("form").style.display = "none";
+        clearAllButton.style.display = "none";
+        return;
+    }
+    
+    Get_all_recipes();  
+    Search();   
 });
