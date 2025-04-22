@@ -47,6 +47,10 @@ body {
     background-size: auto;
 }
 
+.details p {
+    color: #f76f6f;
+}
+
 .details:hover {
     color: #f76f6f; 
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; 

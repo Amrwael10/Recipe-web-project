@@ -34,6 +34,7 @@ header h1:hover {
     width: 80%;
     margin: auto;
     padding: 20px;
+    min-height: 100vh;
 }
 
 /* Search Form */

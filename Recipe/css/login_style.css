@@ -111,7 +111,7 @@ button {
 
 .all-buttons {
     display: flex;
-    flex-direction: space-between;
+    flex-direction: row;
 }
 
 #back-btn {

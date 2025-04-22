@@ -27,6 +27,8 @@ function signUpUser() {
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
     alert(`Welcome, ${username}! You have signed up as ${role}.`);
+    localStorage.setItem('signed_username', user.username);
+    localStorage.setItem('signed_email', user.email);
 
     // Redirect based on role
     if (role === 'admin') {

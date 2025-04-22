@@ -11,6 +11,8 @@ function loginUser() {
 
     if (matchedUser) {
         alert(`Welcome back, ${matchedUser.username}!`);
+        localStorage.setItem('signed_username', matchedUser.username);
+        localStorage.setItem('signed_email', matchedUser.email);
         if (matchedUser.role === 'admin') {
             window.location.href = 'Profile_Page_Admin.html';
         } else {
