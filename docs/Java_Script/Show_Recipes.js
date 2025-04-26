@@ -11,7 +11,7 @@ function saveToLocalStorage(recipes) {
 
 function renderRecipes(recipes, currentUser) {
     const recipesContainer = document.getElementById('recipes-container');
-    recipesContainer.innerHTML = ''; // Clear previous content
+    recipesContainer.innerHTML = ''; 
 
     recipes.forEach((recipe) => {
         const recipeSection = document.createElement('section');
@@ -37,8 +37,24 @@ function renderRecipes(recipes, currentUser) {
             heartIcon.classList.toggle("fas", !isSolid);
             heartIcon.classList.toggle("far", isSolid);
             heartIcon.style.color = !isSolid ? "red" : "";
+        
+            if (!recipe.likedBy) {
+                recipe.likedBy = [];
+            }
+        
+            if (!isSolid) {
+                // Heart was empty and now full (user likes the recipe)
+                if (!recipe.likedBy.includes(currentUser)) {
+                    recipe.likedBy.push(currentUser);
+                }
+            } else {
+                // Heart was full and now empty (user unlikes the recipe)
+                recipe.likedBy = recipe.likedBy.filter(username => username !== currentUser);
+            }
+        
+            saveToLocalStorage(allRecipes);
         });
-
+        
         recipesContainer.appendChild(recipeSection);
     });
 }

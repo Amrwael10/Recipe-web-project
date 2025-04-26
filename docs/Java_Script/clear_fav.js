@@ -141,13 +141,29 @@ function removeRecipe(index) {
 }
 
 clearAllButton.addEventListener("click", () => {
-    if (confirm("Are you sure you want to remove all recipes?")) {
-        allRecipes = [];
-        saveToLocalStorage(allRecipes);
-        create_cards(allRecipes);
-        alert("All recipes removed.");
+    if (confirm("Are you sure you want to remove all favorite recipes?")) {
+        allRecipes.forEach(recipe => {
+            if (recipe.likedBy) {
+                recipe.likedBy = recipe.likedBy.filter(username => username !== signedUsername);
+            }
+        });
+
+        const allStoredRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+        const updatedRecipes = allStoredRecipes.map(storedRecipe => {
+            const updatedRecipe = allRecipes.find(r => r.recipe_name === storedRecipe.recipe_name);
+            if (updatedRecipe) {
+                return updatedRecipe;
+            }
+            return storedRecipe;
+        });
+
+        saveToLocalStorage(updatedRecipes);
+        create_cards([]);
+        alert("All favorite recipes removed.");
     }
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     if (!signedUsername) {

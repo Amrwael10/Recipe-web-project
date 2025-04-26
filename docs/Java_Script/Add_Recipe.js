@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("recipe-form");
-    const successMsg = document.getElementById("success-msg");
-    const preview = document.getElementById("recipe-preview");
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -19,20 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
             recipe_name: name,
             recipe_description: description,
             recipe_image: image,
-            likedBy: [] // if you want to support likes later
+            likedBy: [] 
         };
 
-        // Get existing recipes
         const stored = localStorage.getItem("recipes");
         const recipes = stored ? JSON.parse(stored) : [];
 
-        // Add new recipe
         recipes.push(newRecipe);
         localStorage.setItem("recipes", JSON.stringify(recipes));
 
         alert(`Recipe ${newRecipe.recipe_name} has been added successfully!.`);
 
-        // Reset form
         form.reset();
 
     });
