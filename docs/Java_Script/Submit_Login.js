@@ -9,6 +9,18 @@ function loginUser() {
         return;
     }
 
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return;
+    }
+
     if (matchedUser) {
         alert(`Welcome back, ${matchedUser.username}!`);
         localStorage.setItem('signed_username', matchedUser.username);
