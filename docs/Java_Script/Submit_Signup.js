@@ -12,6 +12,18 @@ function signUpUser() {
         return;
     }
 
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    if (password.length < 8 || confirmPassword.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return;
+    }
+
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
