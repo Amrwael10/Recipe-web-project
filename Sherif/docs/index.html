@@ -68,17 +68,26 @@
         document.addEventListener('DOMContentLoaded', function () {
             const username = localStorage.getItem('signed_username');
             const email = localStorage.getItem('signed_email');
-
+            
             // Only proceed if both values exist and are not empty
             if (username !== null && username.trim() !== '' && email !== null && email.trim() !== '') {
                 // Hide login and signup nav links
                 const navLinks = document.getElementById('nav-links');
                 const links = navLinks.querySelectorAll('a');
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const matchedUser = users.find(user => user.email === email);
 
                 links.forEach(link => {
                     const href = link.getAttribute('href');
                     if (href === 'login.html' || href === 'signup.html') {
                         link.style.display = 'none';
+                    }
+                    if (href === 'index.html') {
+                        if (matchedUser && matchedUser.role === 'user') {
+                            link.innerHTML = `<a href="profile_page_user.html">Welcome ${username}</a>`;
+                        } else if (matchedUser && matchedUser.role === 'admin') {
+                            link.innerHTML = `<a href="Profile_Page_Admin.html">Welcome ${username}</a>`;
+                        }
                     }
                 });
 
@@ -87,6 +96,7 @@
                 if (ctaSection) {
                     ctaSection.style.display = 'none';
                 }
+
             }
         });
     </script>
