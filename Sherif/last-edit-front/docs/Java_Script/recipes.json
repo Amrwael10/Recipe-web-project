@@ -1,0 +1,74 @@
+[
+  {
+    "recipe_name": "Spaghetti Pomodoro",
+    "course_name": "main course",
+    "recipe_description": "A classic Italian dish made with spaghetti and fresh tomato-based sauce.",
+    "ingredients": "Spaghetti 1 kilo, Tomatoes 2 pieces, Garlic 2 cloves, Basil 5 leaves, Olive Oil 2 tbsp, Salt 1 tsp, Pepper 1/2 tsp",
+    "recipe_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReeWD_0ZLWPNj6QK-v-pjhqELIzzIVSyFseA&s",
+    "likedBy": ["sherif", "mario", "amr"]
+  },
+  {
+    "recipe_name": "Grilled Chicken Salad",
+    "course_name": "main course",
+    "recipe_description": "A healthy and light salad with grilled chicken and a lemon-olive oil dressing.",
+    "ingredients": "Grilled Chicken Breast 200g, Mixed Greens 1 cup, Cherry Tomatoes 5 pieces, Cucumber 1 piece, Red Onion 1/2 piece, Olive Oil 1 tbsp, Lemon Juice 1 tbsp",
+    "recipe_image": "https://png.pngitem.com/pimgs/s/151-1519875_food-dish-png-transparent-png.png",
+    "likedBy": ["mario", "sherif"]
+  },
+  {
+    "recipe_name": "Vegetarian Chili",
+    "course_name": "main course",
+    "recipe_description": "A hearty vegetarian chili loaded with beans, vegetables, and spices.",
+    "ingredients": "Kidney Beans 1 cup, Black Beans 1 cup, Corn 1/2 cup, Tomatoes 2 pieces, Bell Peppers 1 piece, Onion 1 piece, Garlic 2 cloves, Chili Powder 1 tbsp",
+    "recipe_image": "https://hips.hearstapps.com/hmg-prod/images/skillet-cheeseburger-hot-dish-best-potluck-dishes-66e8544968ce0.png?crop=1.00xw:0.997xh;0,0&resize=1200:*",
+    "likedBy": ["sherif"]
+  },
+  {
+    "recipe_name": "Greek Salad",
+    "course_name": "main course",
+    "recipe_description": "A refreshing Greek salad with crisp vegetables and feta cheese.",
+    "ingredients": "Cucumber 1 piece, Tomatoes 2 pieces, Red Onion 1/2 piece, Kalamata Olives 1/4 cup, Feta Cheese 100g, Olive Oil 1 tbsp, Oregano 1 tsp",
+    "recipe_image": "imgs/Recipe4.jpg",
+    "likedBy": ["mario"]
+  },
+  {
+    "recipe_name": "Shrimp Curry",
+    "course_name": "main course",
+    "recipe_description": "A flavorful shrimp curry made with coconut milk and aromatic spices.",
+    "ingredients": "Shrimp 300g, Coconut Milk 1 cup, Onion 1 piece, Garlic 2 cloves, Ginger 1 tbsp, Curry Powder 1 tbsp, Tomatoes 2 pieces, Cilantro a handful",
+    "recipe_image": "imgs/Recipe5.jpg",
+    "likedBy": ["sherif", "amr"]
+  },
+  {
+    "recipe_name": "Bruschetta",
+    "course_name": "appetizers",
+    "recipe_description": "Toasted baguette slices topped with a fresh tomato and basil mix.",
+    "ingredients": "Baguette 1 loaf, Tomatoes 2 pieces, Garlic 2 cloves, Basil 5 leaves, Olive Oil 1 tbsp, Balsamic Vinegar 1 tbsp, Salt 1 tsp, Pepper 1/2 tsp",
+    "recipe_image": "https://www.stephiecooks.com/wp-content/uploads/2014/08/tomato-bruschetta-on-platter-hero.jpg",
+    "likedBy": ["sherif", "mario"]
+  },
+  {
+    "recipe_name": "Stuffed Mushrooms",
+    "course_name": "appetizers",
+    "recipe_description": "Baked mushrooms filled with creamy, garlicky cheese stuffing.",
+    "ingredients": "Mushroom Caps 12 pieces, Cream Cheese 100g, Garlic 1 clove, Parmesan 2 tbsp, Bread Crumbs 2 tbsp, Parsley 1 tbsp, Olive Oil 1 tbsp",
+    "recipe_image": "https://www.mushroomcouncil.com/wp-content/uploads/2017/10/P08A_Spinach-and-Artichoke-Dip-Stuffed-Mushrooms-scaled.jpg",
+    "likedBy": ["amr"]
+  },
+  {
+    "recipe_name": "Chocolate Lava Cake",
+    "course_name": "dessert",
+    "recipe_description": "Warm chocolate cake with a gooey molten center.",
+    "ingredients": "Dark Chocolate 100g, Butter 100g, Eggs 2 pieces, Sugar 1/2 cup, Flour 1/4 cup, Vanilla Extract 1 tsp, Salt 1/4 tsp",
+    "recipe_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQctRsXP4xWtGOEejMrHxC9J6J2j0PiUyV9vQ&s",
+    "likedBy": ["mario", "sherif"]
+  },
+  {
+    "recipe_name": "Strawberry Cheesecake",
+    "course_name": "dessert",
+    "recipe_description": "Creamy cheesecake topped with fresh strawberries and a crumbly base.",
+    "ingredients": "Cream Cheese 300g, Strawberries 1 cup, Graham Crackers 1 cup, Butter 50g, Sugar 1/2 cup, Vanilla Extract 1 tsp, Eggs 2 pieces",
+    "recipe_image": "https://drivemehungry.com/wp-content/uploads/2022/07/strawberry-cheesecake-11.jpg",
+    "likedBy": ["amr", "sherif"]
+  }
+]
