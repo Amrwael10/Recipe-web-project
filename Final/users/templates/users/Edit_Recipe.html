@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+    <link rel="icon" type="image/png" href="{% static 'imgs/Rectangle 2.png' %}">
+    <link rel="stylesheet" href="{% static 'css/Add_Recipe_style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="glass">
+            <h1>Edit an Existing Recipe</h1>
+            <form id="recipe-form" method="POST" action="{% url 'edit_recipe' recipe.id %}">
+                {% csrf_token %}
+                <label for="recipe-name">Recipe Name: </label>
+                <input type="text" id="recipe-name" name="recipe_name" value="{{ recipe.name }}" required>
+
+                <label for="recipe-description">Description:</label>
+                <textarea id="recipe-description" name="recipe_description" rows="4" required>{{ recipe.description }}</textarea>
+
+                <label for="recipe-ingredients">Ingredients:</label>
+                <textarea id="recipe-ingredients" name="recipe_ingredients" rows="4" required>{% for ri in recipe_ingredients %}{{ ri.ingredient.name }} {{ ri.quantity }} {{ ri.unit }}{% if not forloop.last %}, {% endif %}{% endfor %}</textarea>
+
+                <label>Course:</label>
+                <div>
+                    <label><input type="radio" name="course" value="Main Course" {% if recipe.course == 'Main Course' %}checked{% endif %} required> Main Dish</label>
+                    <label><input type="radio" name="course" value="Appetizers" {% if recipe.course == 'Appetizers' %}checked{% endif %}> Appetizer</label>
+                    <label><input type="radio" name="course" value="Dessert" {% if recipe.course == 'Dessert' %}checked{% endif %}> Dessert</label>
+                </div>
+
+                <label for="recipe-image">Image URL:</label>
+                <input type="text" id="recipe-image" name="recipe_image" value="{{ recipe.image }}" required>
+
+                <button type="submit">Update Recipe</button>
+            </form>
+            <div class="back-btn">
+                <a href="{% url 'edit_page' %}">Back to Recipes</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url(imgs/Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Lilita One", Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center container */
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+/* Glass background for the form */
+.glass {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Headline */
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Form layout */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-left: 10px;
+}
+
+input, textarea {
+    font-family: "Lilita One", Arial, Helvetica, sans-serif;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    transition: 0.3s ease;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    background-color: #000;
+    color: #fff;
+    transform: scale(1.05);
+    border: #fff 1px solid;
+}
+
+/* Button style */
+button {
+    font-family: "Lilita One", Arial, Helvetica, sans-serif;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .glass {
+        padding: 25px 20px;
+    }
+
+    input, textarea {
+        font-size: 0.95rem;
+    }
+
+    button {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+}
