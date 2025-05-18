@@ -6,27 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fav Recipes</title>
     <link rel="stylesheet" href="css/Favourite-recipies.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" type="image/png" href="imgs/Rectangle 2.png">
 </head>
 
 <body>
-    <header>
-        <h1>Favourite Recipes</h1>
-    </header>
+    <nav>
+        <div class="logo">Favourite Recipes</div>
+        <ul id="nav-links">
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
     <main>
-        <div class="container">
+        <div class="container" style="width: 100%;">
             <div class="space" style="height: 100px;"></div>
             <form action="">
                 <input type="search" placeholder="Search by dish name...">
                 <i class="fa fa-search"></i>
             </form>
+
+
+            <div id="recipes-container">
+
+                <div class="main-dish"></div>
+                <div class="appetizer"></div>
+                <div class="dessert"></div>
+
+            </div>
         </div>
+
         <p id="no-recipe"></p>
-        <button id="Clear-all" type="submit">Clear ALL</button>
+        <button id="Clear-all" type="submit" style="margin-top: 20px;">Clear ALL</button>
     </main>
-    
+
 
     <footer>
         <p>&copy; 2025 Recipe Finder. All rights reserved.</p>

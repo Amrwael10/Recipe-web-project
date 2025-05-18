@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,33 @@
     <link rel="stylesheet" href="css/Add_Recipe_style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <div class="glass">
             <h1>Add a New Recipe</h1>
             <form id="recipe-form">
                 <label for="recipe-name">Recipe Name:</label>
-                <input type="text" id="recipe-name" required>
+                <input type="text" id="recipe-name" placeholder="Spaghetti Pomodoro" required>
 
                 <label for="recipe-description">Description:</label>
-                <textarea id="recipe-description" rows="4" required></textarea>
+                <textarea id="recipe-description" rows="4"
+                    placeholder="A classic Italian dish made with spaghetti and fresh tomato-based sauce."
+                    required></textarea>
+
+                <label for="recipe-ingredients">Ingredients:</label>
+                <textarea id="recipe-ingredients" rows="4"
+                    placeholder="Example: Spaghetti 1 kilo, Tomatoes 2 pieces, Garlic 2 cloves" required></textarea>
+
+                <label>Course:</label>
+                <div>
+                    <label><input type="radio" name="course" value="main course" required> Main Dish</label>
+                    <label><input type="radio" name="course" value="appetizers"> Appetizer</label>
+                    <label><input type="radio" name="course" value="dessert"> Dessert</label>
+                </div>
 
                 <label for="recipe-image">Image URL:</label>
-                <input type="text" id="recipe-image" required>
+                <input type="text" id="recipe-image" placeholder="Example: https://image.ping" required>
 
                 <button type="submit">Add Recipe</button>
             </form>
@@ -28,4 +43,5 @@
     </div>
     <script src="Java_Script/Add_Recipe.js"></script>
 </body>
+
 </html>

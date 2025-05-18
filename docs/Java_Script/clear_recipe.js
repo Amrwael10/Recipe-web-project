@@ -64,37 +64,66 @@ function Get_all_recipes() {
 
 // Create recipe cards
 function create_cards(recipes) {
-    document.querySelectorAll("section.recipe").forEach(e => e.remove());
+    // Get category containers
+    const mainDishContainer = document.querySelector('.main-dish');
+    const appetizerContainer = document.querySelector('.appetizer');
+    const dessertContainer = document.querySelector('.dessert');
 
+    // Clear old recipe sections (preserve headers)
+    mainDishContainer.innerHTML = '<h1 class="course-title">Main Dishes</h1>';
+    appetizerContainer.innerHTML = '<h1 class="course-title">Appetizers</h1>';
+    dessertContainer.innerHTML = '<h1 class="course-title">Desserts</h1>';
+
+    // Handle empty state
     if (recipes.length === 0) {
-        para.textContent = "No recipes available.";
-        para.style.display = "block";
-        document.querySelector("form").style.display = "none";
-        clearAllButton.style.display = "none";
+        mainDishContainer.innerHTML += `<p>No recipes found for Main Dishes.</p>`;
+        appetizerContainer.innerHTML += `<p>No recipes found for Appetizers.</p>`;
+        dessertContainer.innerHTML += `<p>No recipes found for Desserts.</p>`;
         return;
     }
 
-    para.style.display = "none";
-    document.querySelector("form").style.display = "block";
-    clearAllButton.style.display = "block";
-
+    // Loop through recipes and create recipe cards
     recipes.forEach((recipe, index) => {
         const section = document.createElement("section");
         section.className = "recipe";
 
+        // Format ingredients into list items
+        const ingredientsList = recipe.ingredients
+            .split(',')
+            .map(ingredient => `<li>${ingredient.trim()}</li>`)
+            .join('');
+
+        // Inner HTML structure of the recipe card
         section.innerHTML = `
-            <img src="${recipe.recipe_image}" alt="${recipe.recipe_name}" style="max-width: 150px; height: auto;"">
+            <img src="${recipe.recipe_image}" alt="${recipe.recipe_name}" style="max-width: 150px; height: auto;">
             <div class="description">
                 <h2>${recipe.recipe_name}</h2>
                 <p>${recipe.recipe_description}</p>
-                <button data-index="${index}">Remove</button>
+                <p><strong>Ingredients:</strong></p>
+                <ul>${ingredientsList}</ul>
+                <p><strong>Course:</strong> ${recipe.course_name}</p>
+                <button data-index="${index}" class="remove-btn">Remove</button>
             </div>
         `;
 
-        section.querySelector("button").addEventListener("click", () => removeRecipe(index));
-        recipeContainer.insertBefore(section, para);
+        // Attach event listener to the remove button
+        section.querySelector(".remove-btn").addEventListener("click", () => {
+            removeRecipe(index);
+            create_cards(recipes); // Refresh the cards
+        });
+
+        // Append the recipe card to the correct category
+        const course = recipe.course_name?.toLowerCase();
+        if (course === 'main course') {
+            mainDishContainer.appendChild(section);
+        } else if (course === 'appetizers') {
+            appetizerContainer.appendChild(section);
+        } else if (course === 'dessert') {
+            dessertContainer.appendChild(section);
+        }
     });
 }
+
 
 // Remove individual recipe
 function removeRecipe(index) {

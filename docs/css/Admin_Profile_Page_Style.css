@@ -1,19 +1,21 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    flex-direction: column;
+
+    height: 100vh;
     margin: 0;
     font-family: "Lilita One", sans-serif;
     background-image: url('imgs/Admin_Profile_Page.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    padding: 20px;
+    padding: 0px;
+    margin: 0;
 }
 
 .admin-card {
     width: 90%;
+    margin: auto;
+    margin-top: 150px;
     max-width: 800px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 15px;

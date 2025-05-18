@@ -68,10 +68,10 @@ main {
     display: flex;
     align-items: center;
     background-color: white;
-    margin: 20px;
+    margin-inline: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 1rem 0;
+    margin-top: 1rem;
     padding: 1rem;
     width: 80%;
     transition: transform 0.3s;
@@ -207,6 +207,14 @@ form:hover .fa {
     background: #f76f6f;
     color: white;
 }
+
+.course-title {
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    margin: 10px auto;
+}
+
 
 @media (max-width: 750px) {
     .recipe {

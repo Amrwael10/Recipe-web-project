@@ -10,44 +10,66 @@ function saveToLocalStorage(recipes) {
 }
 
 function renderRecipes(recipes, currentUser) {
-    const recipesContainer = document.getElementById('recipes-container');
-    const noRecipeMessage = document.getElementById('no-recipe');
-    recipesContainer.innerHTML = ''; 
+    // Get category containers
+    const mainDishContainer = document.querySelector('.main-dish');
+    const appetizerContainer = document.querySelector('.appetizer');
+    const dessertContainer = document.querySelector('.dessert');
 
+    // Clear old recipe sections but preserve headers
+    mainDishContainer.innerHTML = '<h1 class="course-title">Main Dishes</h1>';
+    appetizerContainer.innerHTML = '<h1 class="course-title">Appetizers</h1>';
+    dessertContainer.innerHTML = '<h1 class="course-title">Desserts</h1>';
+
+    // Handle the case where there are no recipes
     if (!recipes.length) {
-        if (noRecipeMessage) {
-            noRecipeMessage.style.display = 'block';
-            noRecipeMessage.textContent = 'No recipes found!';
-        }
+        mainDishContainer.innerHTML += `<p>No recipes found for Main Dishes.</p>`;
+        appetizerContainer.innerHTML += `<p>No recipes found for Appetizers.</p>`;
+        dessertContainer.innerHTML += `<p>No recipes found for Desserts.</p>`;
         return;
-    } else if (noRecipeMessage) {
-        noRecipeMessage.style.display = 'none';
     }
 
+    // Loop through recipes and create recipe cards
     recipes.forEach((recipe, index) => {
         const recipeSection = document.createElement('section');
         recipeSection.classList.add('recipe');
 
+        const ingredientsList = recipe.ingredients
+            .split(',')
+            .map(ingredient => `<li>${ingredient.trim()}</li>`)
+            .join('');
+
         recipeSection.innerHTML = `
-            <img src="${recipe.recipe_image || recipe.image}" alt="${recipe.recipe_name || recipe.recipe}" style="max-width: 150px;">
+            <img src="${recipe.recipe_image}" alt="${recipe.recipe_name}" style="max-width: 150px;">
             <div class="description">
-                <h2>${recipe.recipe_name || recipe.recipe}</h2>
+                <h2>${recipe.recipe_name}</h2>
+                <p>${recipe.recipe_description}</p>
+                <p><strong>Ingredients:</strong></p>
+                <ul>${ingredientsList}</ul>
                 <button class="edit-btn" data-index="${index}">
                     Edit
                 </button>
-                <p>${recipe.recipe_description || recipe.description}</p>
             </div>
         `;
 
+        // Add edit button functionality
         const editButton = recipeSection.querySelector('.edit-btn');
         editButton.addEventListener('click', () => {
             localStorage.setItem('edit_recipe_index', index);
             window.location.href = 'Edit_Recipe.html';
         });
 
-        recipesContainer.appendChild(recipeSection);
+        // Append to the correct category container
+        const course = recipe.course_name?.toLowerCase();
+        if (course === 'main course') {
+            mainDishContainer.appendChild(recipeSection);
+        } else if (course === 'appetizers') {
+            appetizerContainer.appendChild(recipeSection);
+        } else if (course === 'dessert') {
+            dessertContainer.appendChild(recipeSection);
+        }
     });
 }
+
 
 function Search(currentUser) {
     const searchInput = document.querySelector('input[type="search"]');

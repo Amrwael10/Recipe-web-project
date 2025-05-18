@@ -175,6 +175,14 @@ form:hover .fa {
     color: white;
 }
 
+.course-title {
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    margin: 10px auto;
+}
+
+
 @media (max-width: 750px) {
     .recipe {
         flex-direction: column;

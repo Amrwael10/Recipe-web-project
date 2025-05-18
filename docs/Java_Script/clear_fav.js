@@ -75,8 +75,17 @@ function Get_all_recipes() {
 }
 
 function create_cards(recipes) {
-    document.querySelectorAll("section.recipe").forEach(e => e.remove());
+    // Get category containers
+    const mainDishContainer = document.querySelector('.main-dish');
+    const appetizerContainer = document.querySelector('.appetizer');
+    const dessertContainer = document.querySelector('.dessert');
 
+    // Clear old recipe sections (but preserve headers)
+    mainDishContainer.innerHTML = '<h1 class="course-title">Main Dishes</h1>';
+    appetizerContainer.innerHTML = '<h1 class="course-title">Appetizers</h1>';
+    dessertContainer.innerHTML = '<h1 class="course-title">Desserts</h1>';
+
+    // Handle empty state
     if (recipes.length === 0) {
         para.textContent = "No favourite recipes available.";
         para.style.display = "block";
@@ -90,22 +99,41 @@ function create_cards(recipes) {
     clearAllButton.style.display = "block";
 
     recipes.forEach((recipe, index) => {
-        const section = document.createElement("section");
-        section.className = "recipe";
+        const recipeSection = document.createElement('section');
+        recipeSection.classList.add('recipe');
 
-        section.innerHTML = `
-            <img src="${recipe.recipe_image}" alt="${recipe.recipe_name}" style="max-width: 150px; height: auto;">
+        // Format ingredients into list items
+        const ingredientsList = recipe.ingredients
+            .split(',')
+            .map(ingredient => `<li>${ingredient.trim()}</li>`)
+            .join('');
+
+        recipeSection.innerHTML = `
+            <img src="${recipe.recipe_image}" alt="${recipe.recipe_name}" style="max-width: 150px;">
             <div class="description">
                 <h2>${recipe.recipe_name}</h2>
                 <p>${recipe.recipe_description}</p>
-                <button data-index="${index}">Remove</button>
+                <p><strong>Ingredients:</strong></p>
+                <ul>${ingredientsList}</ul>
+                <button data-index="${index}" class="remove-btn">Remove</button>
             </div>
         `;
 
-        section.querySelector("button").addEventListener("click", () => removeRecipe(index));
-        recipeContainer.insertBefore(section, para);
+        // Remove button logic
+        recipeSection.querySelector('.remove-btn').addEventListener("click", () => removeRecipe(index));
+
+        // Append to the correct container based on course name
+        const course = recipe.course_name?.toLowerCase();
+        if (course === 'main course') {
+            mainDishContainer.appendChild(recipeSection);
+        } else if (course === 'appetizers') {
+            appetizerContainer.appendChild(recipeSection);
+        } else if (course === 'dessert') {
+            dessertContainer.appendChild(recipeSection);
+        }
     });
 }
+
 
 function removeRecipe(index) {
     if (confirm("Are you sure you want to remove this recipe?")) {

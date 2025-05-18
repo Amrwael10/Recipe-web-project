@@ -1,17 +1,32 @@
 /* Navigation Bar */
 nav {
-    background: #333;
-    color: white;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    font-family: "Lilita One", sans-serif;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav .logo {
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 20px;
+    display: inline-block;
+    color: #fff;
+}
+
+nav .logo:hover{
+    color: #e25454;
+    cursor: pointer;
 }
 
 nav ul {
@@ -19,14 +34,23 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin: 0 10px;
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
+    font-size: 1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
     text-decoration: none;
-    font-size: 18px;
+}
+
+nav ul li a:hover {
+    background-color: #d94a4a;
 }
